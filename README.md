@@ -2,6 +2,10 @@
 
 A small workspace for drafting and sharing team documents. It covers the everyday loop: create, format, save, reopen, import, share, and export.
 
+## Live demo
+
+[Open DocDesk](https://docdesk-akms.onrender.com/)
+
 ## Run locally
 
 Requirements: Node.js 20 or newer.
