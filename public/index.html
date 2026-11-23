@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f4f0"><title>DocDesk — a clear space for documents</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="DocDesk home"><span class="brand-mark">D</span><span>docdesk<span class="brand-dot">.</span></span></a>
+      <div class="workspace-label">YOUR WORKSPACE</div>
+      <button class="new-doc" id="newDoc"><span class="plus">＋</span> New document <span class="shortcut">⌘ N</span></button>
+      <div class="nav-section"><span>LIBRARY</span><button id="refreshDocs" class="icon-button" title="Refresh documents">↻</button></div>
+      <div id="docList" class="doc-list"></div>
+      <div class="sidebar-bottom">
+        <div class="help-card"><span class="help-spark">✳</span><div><strong>A quieter space<br>for shared work.</strong><small>Made for teams that think.</small></div></div>
+        <div class="profile-row"><div id="avatar" class="avatar">A</div><div class="profile-copy"><strong id="profileName">Avery Chen</strong><small>Workspace member</small></div><select id="userSelect" aria-label="Switch workspace member"></select><span class="chevron">⌄</span></div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><span id="crumbTitle">All documents</span></div>
+        <div class="top-actions"><span class="save-status" id="saveStatus"><i></i> All changes saved</span><button class="share-button" id="shareButton" disabled><span>↗</span> Share</button></div>
+      </header>
+      <section id="welcome" class="welcome-view">
+        <div class="welcome-eyebrow"><span></span> A LITTLE ROOM TO THINK</div>
+        <h1>Good work starts<br>with <em>a clear page.</em></h1>
+        <p>A calm place for your team to collect thoughts,<br>shape ideas, and move the work forward.</p>
+        <button id="welcomeNew" class="primary-button">Create your first document <span>→</span></button>
+        <div class="welcome-foot"><span>01</span><span class="foot-line"></span><span>SPACE TO THINK, TOGETHER</span></div>
+        <div class="sun-shape" aria-hidden="true"><div class="sun-inner"></div></div>
+      </section>
+      <section id="editorView" class="editor-view hidden">
+        <div class="editor-meta"><div class="doc-type"><span class="doc-icon">▤</span><span id="docAccess">YOUR DOCUMENT</span></div><span class="updated-label" id="updatedLabel"></span></div>
+        <input id="titleInput" class="title-input" value="Untitled document" maxlength="120" aria-label="Document title">
+        <div class="format-bar" role="toolbar" aria-label="Text formatting">
+          <button data-command="bold" title="Bold (⌘B)"><b>B</b></button><button data-command="italic" title="Italic (⌘I)"><i>I</i></button><button data-command="underline" title="Underline (⌘U)"><u>U</u></button>
+          <span class="tool-divider"></span><select id="blockFormat" aria-label="Text style"><option value="p">Normal text</option><option value="h1">Heading 1</option><option value="h2">Heading 2</option><option value="h3">Heading 3</option></select>
+          <span class="tool-divider"></span><button data-command="insertUnorderedList" title="Bulleted list">☷</button><button data-command="insertOrderedList" title="Numbered list">1.</button>
+          <span class="tool-divider"></span><button id="linkButton" title="Add link">↗</button><span class="toolbar-spacer"></span><button id="exportButton" class="import-button" title="Export as Markdown">↓ <span>Markdown</span></button><button id="importButton" class="import-button" title="Import a text or Markdown file">↑ <span>Import</span></button><input id="fileInput" type="file" accept=".txt,.md,text/plain,text/markdown" hidden>
+        </div>
+        <article id="editor" class="page" contenteditable="true" spellcheck="true" aria-label="Document content"></article>
+        <footer class="editor-footer"><span><span class="footer-dot"></span><span id="privacyLabel">Private to you</span></span><span id="wordCount">0 words</span></footer>
+      </section>
+      <section id="emptyState" class="empty-state hidden"><div class="empty-icon">▤</div><h2>Nothing here yet</h2><p>Create a document or switch to another workspace member.</p><button id="emptyNew" class="primary-button">Create a document <span>→</span></button></section>
+    </main>
+  </div>
+
+  <dialog id="shareDialog" class="share-dialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button></form><div class="dialog-icon">↗</div><h2>Share this document</h2><p class="dialog-subtitle">Invite a teammate to read along.</p><div class="share-field"><label for="shareSelect">ADD A PERSON</label><div><select id="shareSelect"></select><button id="grantShare" class="primary-button small">Invite</button></div></div><div class="people-label">PEOPLE WITH ACCESS</div><div id="accessList" class="access-list"></div><div class="share-note"><span>ⓘ</span> Shared teammates can view this document. Only you can edit it.</div></dialog>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

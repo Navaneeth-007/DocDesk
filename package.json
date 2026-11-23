@@ -1,0 +1,9 @@
+{
+  "name": "docdesk",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A small collaborative document workspace",
+  "scripts": { "start": "node server.js", "dev": "node --watch server.js", "test": "node --test" },
+  "engines": { "node": ">=20" },
+  "dependencies": { "pg": "^8.16.3" }
+}

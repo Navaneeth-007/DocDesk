@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: docdesk
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: docdesk-db
+          property: connectionString
+
+databases:
+  - name: docdesk-db
+    databaseName: docdesk
+    user: docdesk
+    plan: free
+    region: singapore
