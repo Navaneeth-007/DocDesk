@@ -10,7 +10,7 @@ AI accelerated the initial UI/API scaffold, repetitive styles, and the first pas
 
 ## Judgment and changes
 
-The output was reviewed and adjusted to keep the project dependency-free, make shared access read-only in the UI and API, restrict imports to `.txt`/`.md`, escape imported text, and document the JSON store's single-instance limit. A server-side HTML cleanup and persistence test were added rather than assuming browser-side controls were sufficient.
+The output was reviewed and adjusted to keep local setup small while adding only the `pg` runtime dependency for PostgreSQL hosting. Shared access is read-only in the UI and API, imports are limited to `.txt`/`.md`, imported text is escaped, and the JSON store's single-instance limit is documented. A server-side HTML cleanup and persistence test were added rather than assuming browser-side controls were sufficient.
 
 ## Verification
 

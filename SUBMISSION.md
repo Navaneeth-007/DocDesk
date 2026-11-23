@@ -9,4 +9,4 @@
 - `LIVE_URL.txt`: live product URL (https://docdesk-akms.onrender.com/).
 - `WALKTHROUGH_URL.txt`: walkthrough video link (not recorded yet).
 
-The local product runs with `npm start` on Node.js 20+. Seeded demo members are Avery Chen, Jordan Lee, and Sam Rivera. A live URL and walkthrough recording still need to be added before this is a complete submission package.
+For local review, run `npm install` and `npm start` with Node.js 20 or newer. Switch between Avery Chen, Jordan Lee, and Sam Rivera in the sidebar to review sharing; these demo identities have no passwords. The live URL is in `LIVE_URL.txt`. Replace the placeholder in `WALKTHROUGH_URL.txt` after recording the video.
